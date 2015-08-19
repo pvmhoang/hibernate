@@ -1,7 +1,6 @@
 package hoang.pham.vn;
 
 import hoang.pham.vn.model.Book;
-import hoang.pham.vn.utils.SessionManager;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.stat.SessionStatistics;
@@ -26,7 +25,7 @@ public class Chap1Test {
 
     }*/
 
-    @Test
+    //@Test
     public void selectBookByIsbn(){
         Session session = SessionManager.getSessionFactory().openSession();
         SessionStatistics sessionStatistics = session.getStatistics();
@@ -41,10 +40,10 @@ public class Chap1Test {
         session.close();
     }
 
-   // @Test
+    @Test
     public void selectBookUseJPA(){
         //EntityManager entityManager = entityManagerFactory.createEntityManager();
-        EntityManager entityManager = SessionManager.getEntityManager();
+        EntityManager entityManager = SessionManager.getEntityManager("chapter1");
         //entityManager.getTransaction().begin();
         List<Book> bookList = (List<Book>) entityManager.createQuery ("from Book",Book.class).getResultList();
        // entityManager.getTransaction().commit();

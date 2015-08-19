@@ -7,10 +7,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>chapter1</artifactId>
+    <artifactId>utils</artifactId>
     <packaging>jar</packaging>
 
-    <name>chapter1</name>
+    <name>utils</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -18,10 +18,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>hoang.pham.vn</groupId>
-            <artifactId>utils</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
     </dependencies>
 </project>

@@ -1,7 +1,6 @@
-package hoang.pham.vn.utils;
+package hoang.pham.vn;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
@@ -34,8 +33,8 @@ public class SessionManager {
         return sessionFactory;
     }
 
-    public static EntityManager getEntityManager () {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("chapter1");
+    public static EntityManager getEntityManager (String persistenceUnit) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnit);
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         return  entityManager;
     }
