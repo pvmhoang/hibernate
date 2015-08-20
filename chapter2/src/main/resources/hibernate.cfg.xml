@@ -19,6 +19,8 @@
         <property name="hbm2ddl.auto">update</property>
         <mapping class="hoang.pham.vn.model.Product"/>
         <mapping class="hoang.pham.vn.model.SequenceIdEntity"/>
-        <mapping class="hoang.pham.vn.model.IncrementIdEntity"/>
+        <!--<mapping class="hoang.pham.vn.model.IncrementIdEntity"/>-->
+        <mapping class="hoang.pham.vn.model.Employee"/>
+        <mapping class="hoang.pham.vn.model.EmployeeEx"/>
     </session-factory>
 </hibernate-configuration>

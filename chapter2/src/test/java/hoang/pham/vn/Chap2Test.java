@@ -1,8 +1,6 @@
 package hoang.pham.vn;
 
-import hoang.pham.vn.model.IncrementIdEntity;
-import hoang.pham.vn.model.Product;
-import hoang.pham.vn.model.SequenceIdEntity;
+import hoang.pham.vn.model.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.stat.SessionStatistics;
@@ -50,7 +48,7 @@ public class Chap2Test {
         session.close();
     }
 
-    @Test
+    //@Test
     public void testIncrementIdEntity(){
         Session session = SessionManager.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
@@ -61,6 +59,20 @@ public class Chap2Test {
         }
         transaction.commit();
         List<SequenceIdEntity> list = (List<SequenceIdEntity>) session.createQuery("from SequenceIdEntity").list();
+        session.close();
+    }
+
+    @Test
+    public void testEmployee(){
+        Session session = SessionManager.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        Employee employee = new Employee(4L,4L,"Hoang");
+        session.persist(employee);
+        EmployeeEx employeeEx = new EmployeeEx(1l,1L,"Lam");
+        session.persist(employeeEx);
+        transaction.commit();
+        List<Employee> list = (List<Employee>) session.createQuery("from Employee").list();
+        EmployeeEx employeeEx1 = (EmployeeEx) session.get(EmployeeEx.class, new EmployeeId(1L,1L));
         session.close();
     }
 
