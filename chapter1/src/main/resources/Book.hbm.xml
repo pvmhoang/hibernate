@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="hoang.pham.vn.model.Book" table="BOOK" lazy="false">
+    <class name="hoang.pham.vn.model.BookEntity" table="BOOK" lazy="false">
         <id name="isbn">
             <column name="ISBN" sql-type="varchar(13)" not-null="true"/>
         </id>

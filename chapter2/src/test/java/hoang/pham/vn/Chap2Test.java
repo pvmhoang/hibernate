@@ -62,7 +62,7 @@ public class Chap2Test {
         session.close();
     }
 
-    @Test
+    //@Test
     public void testEmployee(){
         Session session = SessionManager.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
@@ -76,4 +76,43 @@ public class Chap2Test {
         session.close();
     }
 
+    //@Test
+    public void testSaveAndUpdate(){
+        Session session = SessionManager.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        MapEntry mapEntry = new MapEntry("Key2","Value1");
+        session.saveOrUpdate(mapEntry);
+        transaction.commit();
+        session.close();
+        session = SessionManager.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        mapEntry = new MapEntry("Key2","Value2");
+        session.saveOrUpdate(mapEntry);
+        transaction.commit();
+        session.close();
+    }
+
+    //@Test
+    public void testStandardSQL(){
+        Session session = SessionManager.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        StandardSQLEntity standardSQLEntity = new StandardSQLEntity();
+        standardSQLEntity.setField1("Field2");
+        session.save(standardSQLEntity);
+        transaction.commit();
+        List<StandardSQLEntity> lst = session.createQuery("from StandardSQLEntity").list();
+        session.close();
+    }
+
+    @Test
+    public void testDynamicSQL(){
+        Session session = SessionManager.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        DynamicSQLEntity dynamicSQLEntity = new DynamicSQLEntity();
+        dynamicSQLEntity.setField1("Field3");
+        session.save(dynamicSQLEntity);
+        transaction.commit();
+        List<DynamicSQLEntity> lst = session.createQuery("from DynamicSQLEntity").list();
+        session.close();
+    }
 }

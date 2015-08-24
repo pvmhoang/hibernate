@@ -22,5 +22,8 @@
         <!--<mapping class="hoang.pham.vn.model.IncrementIdEntity"/>-->
         <mapping class="hoang.pham.vn.model.Employee"/>
         <mapping class="hoang.pham.vn.model.EmployeeEx"/>
+        <mapping class="hoang.pham.vn.model.MapEntry"/>
+        <mapping class="hoang.pham.vn.model.StandardSQLEntity"/>
+        <mapping class="hoang.pham.vn.model.DynamicSQLEntity"/>
     </session-factory>
 </hibernate-configuration>
